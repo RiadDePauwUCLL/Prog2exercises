@@ -1,12 +1,22 @@
 class Archer:
     def __init__(self, name, health, num_arrows):
-        pass
+        self.name = name
+        self.health = health
+        self.num_arrows = num_arrows
 
     def get_shot(self):
-        pass
+        if self.health < 0:
+            raise ValueError(f'{self.name} is dead')
+        self.health -= 1
 
     def shoot(self, target):
-        pass
+        if self.num_arrows < 1:
+            raise ValueError(f"{self.name} can't shoot")
+        else:
+            self.num_arrows -= 1
+            print(f'{self.name} shoots {target.name}')
+            target.get_shot()
+
 
     # don't touch below this line
 
