@@ -18,41 +18,19 @@ class LengthConverter:
     
     @meter.setter
     def meter(self, value):
-        if self.__feet:
-            self.__feet /= 3.281
-            return self.__feet
-
-        elif self.__inch:
-            self.__inch *= 39.37
-            return self.__inch
-
-        else:
-            self.__meter = value
+        self.__meter = value
+        self.__feet = value * 3.281
+        self.__inch = value * 39.37
 
     @feet.setter
     def feet(self, value):
-        if self.__meter:
-            self.__meter *= 3.281
-            return self.__meter
+        self.__feet = value
+        self.__meter = value / 3.281
+        self.__inch = value * 12
 
-        elif self.__inch:
-            self.__inch /= 12
-            return self.__inch
-
-        else:
-            self.__feet = value
 
     @inch.setter
     def inch(self, value):
-        if self.__feet:
-            self.__feet *= 12
-            return self.__feet
-
-        elif self.__meter:
-            self.__meter *= 39.37
-            return self.__meter
-
-        else:
-            self.__inch = value
-
-        
+        self.__inch = value
+        self.__feet = value / 12
+        self.__meter = value / 39.37
