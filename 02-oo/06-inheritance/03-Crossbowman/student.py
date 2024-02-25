@@ -28,5 +28,5 @@ class Crossbowman(Archer):
     def triple_shot(self, target):
         if self.__num_arrows < 3:
             raise ValueError("Not enough arrows")
-        self.__num_arrows -= 3
+        self.use_arrows(3)
         return f'{target} was shot by 3 crossbow bolts'
