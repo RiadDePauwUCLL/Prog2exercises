@@ -1,13 +1,21 @@
 # Write your code here
 from abc import ABC, abstractmethod
 
-class A:
+class A(ABC):
+    
     def a(self):
         self.b()
 
     def e(self):
         self.c()
-        
+
+    @abstractmethod
+    def b(self):
+        ...
+    
+    @abstractmethod
+    def c(self):
+        ...
 
 
 class B(A):
@@ -27,6 +35,13 @@ class D(A):
     def b(self):
         self.f()
 
+    def h(self):
+        self.b()
+
+    @abstractmethod
+    def f(self):
+        ...
+
 
 class E(D):
     def c(self):
@@ -39,7 +54,14 @@ class E(D):
         self.f()
 
 
-class F:
+class F(ABC):
     def a(self):
         self.b()
         self.f()
+
+    @abstractmethod
+    def b(self):
+        ...
+    @abstractmethod
+    def f(self):
+        ...
