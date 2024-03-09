@@ -4,8 +4,36 @@ class Customer:
         self.age = age
         self.country = country
 
+class Item(Customer):
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
 
-class ShoppingList:
+    def can_be_sold_to(self, customer):
+        return True
+    
+
+class AgeRestrictedItem(Item):
+    def __init__(self, name, price):
+        super().__init__(name, price)
+
+    def can_be_sold_to(self, customer):
+        if customer.age < 18:
+            return False
+        return True
+    
+
+class CountryRestrictedItem(Item):
+    def __init__(self, name, price):
+        super().__init__(name, price)
+
+    def can_be_sold_to(self, customer):
+        if customer.country == "Arstotzka":
+            return False
+        return True
+
+
+class ShoppingList(Item):
     def __init__(self, owner):
         self.__owner = owner
         self.__items = []
