@@ -162,6 +162,18 @@ We'd like to add that [pytest's fixtures](https://docs.pytest.org/en/7.3.x/expla
 * [Smart caching](https://docs.pytest.org/en/7.3.x/how-to/fixtures.html#fixtures-can-be-requested-more-than-once-per-test-return-values-are-cached)
 * [Scoping](https://docs.pytest.org/en/7.3.x/how-to/fixtures.html#scope-sharing-fixtures-across-classes-modules-packages-or-session) to reuse fixtures across classes/modules/packages.
 
+```
+function: the default scope, the fixture is destroyed at the end of the test.
+
+class: the fixture is destroyed during teardown of the last test in the class.
+
+module: the fixture is destroyed during teardown of the last test in the module.
+
+package: the fixture is destroyed during teardown of the last test in the package.
+
+session: the fixture is destroyed at the end of the test session.
+```
+
 ## Task
 
 Replace the fixtures by factory functions.
