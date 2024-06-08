@@ -47,7 +47,7 @@ class StorageDevice:
         self.__available_blocks -= allocated_blocks
         self.__used_blocks |= allocated_blocks  #This is a special operator that performs a set union operation.
         
-        return allocated_blocks
+        return list(allocated_blocks)
     
     # with itertools
 
