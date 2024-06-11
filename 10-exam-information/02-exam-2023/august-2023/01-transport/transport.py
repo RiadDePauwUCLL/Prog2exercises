@@ -1,2 +1,5 @@
-# enter your code here to solve the transporation assignment
-# voer hier je code in om de vervoersvraag op te lossen
+class Passenger:
+    def __init__(self, id, name, money):
+        self.id = id
+        self.name = name
+        self.money = money
