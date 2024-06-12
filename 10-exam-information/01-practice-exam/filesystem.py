@@ -95,7 +95,11 @@ class Entity(ABC):
             return True
         else:
             return False
-        
+    
+    # @staticmethod
+    # def is_valid_name(name):
+    #     return bool(re.fullmatch("^[a-zA-Z0-9.]{1,16}$", name))
+
     @property
     def storage(self):
         return self.__storage
